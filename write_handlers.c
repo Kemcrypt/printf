@@ -12,7 +12,7 @@
  *
  * Return: Number of chars printed.
  */
-int handle_write_char(char c, char buffer[]
+int handle_write_char(char c, char buffer[],
 		int flags, int width, int precision, int size)
 { /* char is stored at left and paddind at buffer's right */
 	int i = 0;
@@ -231,9 +231,9 @@ else if (!(flags & F_MINUS) && padd == ' ')/* extra char to left of buffer */
 if (extra_c)
 	buffer[--ind] = extra_c;
 return (write(1, &buffer[3], i - 3) + write(1, &buffer[ind], length));
-{
-else if (!(flags & F_MINUS) && padd == '0')/* extra char to left of padd */
 }
+else if (!(flags & F_MINUS) && padd == '0')/* extra char to left of padd */
+{
 if (extra_c)
 	buffer[--padd_start] = extra_c;
 buffer[1] = '0';
